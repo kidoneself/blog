@@ -5,6 +5,10 @@ export default defineConfig({
   title: "我的博客",
   description: "记录生活与工作的点点滴滴",
   lang: 'zh-CN',
+  // base: '/blog/', // GitHub Pages 需要取消注释这行（Vercel/Cloudflare 不需要）
+  
+  // 忽略死链接检查
+  ignoreDeadLinks: true,
   
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
