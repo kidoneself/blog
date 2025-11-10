@@ -4,6 +4,7 @@
 
 ## ✨ 最新文章
 
+- [三十而立](./san-shi-er-li.md) - 2025-11-10
 - [我的第一篇博客](./first-post.md) - 2025-11-07
 - [阅读的力量](./power-of-reading.md) - 2025-11-07
 - [时间管理心得](./time-management.md) - 2025-11-07

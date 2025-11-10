@@ -42,6 +42,7 @@ export default defineConfig({
         {
           text: '生活随笔',
           items: [
+            { text: '三十而立', link: '/posts/life/san-shi-er-li' },
             { text: '我的第一篇博客', link: '/posts/life/first-post' },
             { text: '阅读的力量', link: '/posts/life/power-of-reading' },
             { text: '时间管理心得', link: '/posts/life/time-management' },
@@ -73,6 +74,7 @@ export default defineConfig({
           text: '生活',
           collapsed: false,
           items: [
+            { text: '三十而立', link: '/posts/life/san-shi-er-li' },
             { text: '我的第一篇博客', link: '/posts/life/first-post' },
             { text: '阅读的力量', link: '/posts/life/power-of-reading' },
             { text: '时间管理心得', link: '/posts/life/time-management' },
