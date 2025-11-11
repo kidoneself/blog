@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "wechat:publish": "node scripts/wechat-publish.js"
   },
   "keywords": [],
   "author": "",
@@ -15,5 +16,13 @@
   "devDependencies": {
     "vitepress": "^1.6.4",
     "vue": "^3.5.24"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
+    "form-data": "^4.0.4",
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.1.0"
   }
 }

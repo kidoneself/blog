@@ -194,6 +194,37 @@ export default DefaultTheme
 
 在 `.vitepress/theme/components/` 下创建 Vue 组件，然后在 Markdown 中使用。
 
+## 📢 微信公众号同步
+
+- 在项目根目录创建 `.env`（切勿提交到仓库），填写公众号凭据：
+
+  ```bash
+  WECHAT_APP_ID=你的AppId
+  WECHAT_APP_SECRET=你的AppSecret
+  # 可选项
+  WECHAT_AUTHOR=默认作者署名
+  WECHAT_SOURCE_BASE_URL=https://blog.example.com/
+  WECHAT_OPEN_COMMENT=1
+  WECHAT_ONLY_FANS_COMMENT=0
+  ```
+
+- 在文章 Frontmatter 中至少提供 `title`，并建议补充 `description`、`cover` 等字段。也可以使用 `wechatThumbMediaId` 直接指定已上传的封面素材。
+
+- 执行命令同步为公众号草稿：
+
+  ```bash
+  npm run wechat:publish -- posts/life/san-shi-er-li.md
+  ```
+
+- 常用参数：
+  - `--cover`: 指定封面图片路径或 URL，优先级最高。
+  - `--source`: 设置“阅读原文”链接。
+  - `--publish`: 草稿创建成功后立即调用接口发布（谨慎使用）。
+- 自动排版：脚本会为标题、列表、引用等注入内联样式，使排版更贴近站点移动端效果。
+- 调试排版：可通过 `WECHAT_DEBUG_HTML=1 npm run wechat:publish -- <文章路径>` 生成 `wechat-preview.html` 预览最终 HTML。
+
+- 脚本会将 Markdown 转为公众号 HTML，并自动上传文中本地图片为图文素材；如需修改逻辑，可查看 `scripts/wechat-publish.js`。
+
 ## 🚀 部署
 
 ### 部署到 GitHub Pages

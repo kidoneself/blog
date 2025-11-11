@@ -28,3 +28,6 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
+# 微信公众号调试输出
+wechat-preview.html
+
