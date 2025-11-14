@@ -77,6 +77,12 @@ frpp.example.com {
 }
 ```
 
+### ⚙️ 需要修改的地方
+
+- **域名**：将 `frpp.example.com` 替换为你的实际域名
+  - 需要在 DNS 中配置 A 记录指向服务器 IP
+  - 确保域名已正确解析
+
 ### 配置要点解析
 
 - **域名绑定**：`frpp.example.com` 是面板的访问域名，需要提前在 DNS 中配置 A 记录指向服务器 IP
@@ -110,6 +116,13 @@ frpp.example.com {
     reverse_proxy host.docker.internal:7000
 }
 ```
+
+### ⚙️ 需要修改的地方
+
+- **泛域名**：将 `*.frp.example.com` 替换为你的实际泛域名
+  - 例如：`*.frp.yourdomain.com`
+  - 需要在 DNS 中配置泛域名解析（`*.frp.yourdomain.com` 指向服务器 IP）
+- **Cloudflare API Token**：在 Docker Compose 中配置 `CLOUDFLARE_API_TOKEN` 环境变量（见下方配置）
 
 ### 配置要点解析
 
@@ -146,7 +159,7 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      - CLOUDFLARE_API_TOKEN=o6DRqJnuvuZ7nO7-WnfqeV1K8DMcz2lK_pMsli65
+      - CLOUDFLARE_API_TOKEN=your_cloudflare_api_token_here
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
@@ -158,6 +171,14 @@ volumes:
   caddy_data:
   caddy_config:
 ```
+
+### ⚙️ 需要修改的地方
+
+- **Cloudflare API Token**：将 `your_cloudflare_api_token_here` 替换为你的实际 Cloudflare API Token
+  - 在 Cloudflare 控制台创建 API Token，需要 DNS 编辑权限
+  - 建议使用环境变量文件（`.env`）管理，不要硬编码在配置中
+- **Caddyfile 路径**：将 `/home/ubuntu/frp-pannal/caddy/Caddyfile` 替换为你的实际 Caddyfile 路径
+  - 确保路径正确，文件存在且有读取权限
 
 ### 配置要点解析
 
@@ -191,10 +212,10 @@ services:
     image: vaalacat/frp-panel:latest
     network_mode: host
     environment:
-      APP_GLOBAL_SECRET: kidoneself
-      MASTER_RPC_HOST: 122.51.73.200 #服务器的外部IP或域名
+      APP_GLOBAL_SECRET: your_global_secret_here
+      MASTER_RPC_HOST: your-server-ip-or-domain.com #服务器的外部IP或域名
       MASTER_RPC_PORT: 8901 # rpc 端口
-      MASTER_API_HOST: 122.51.73.200 #服务器的外部IP或域名
+      MASTER_API_HOST: your-server-ip-or-domain.com #服务器的外部IP或域名
       MASTER_API_PORT: 8900 # api 端口
       MASTER_API_SCHEME: http
       CLIENT_RPC_URL: wss://frpp.example.com # rpc 地址
@@ -204,6 +225,22 @@ services:
     restart: unless-stopped
     command: master
 ```
+
+### ⚙️ 需要修改的地方
+
+- **APP_GLOBAL_SECRET**：将 `your_global_secret_here` 替换为你的全局密钥（用于加密敏感数据）
+  - 建议使用强随机字符串，长度至少 32 位
+  - 例如：`openssl rand -hex 32` 生成的随机字符串
+- **MASTER_RPC_HOST**：将 `your-server-ip-or-domain.com` 替换为服务器的外部 IP 或域名
+  - 如果使用 IP：直接填写服务器公网 IP，如 `122.51.73.200`
+  - 如果使用域名：填写域名，如 `frp.example.com`
+- **MASTER_API_HOST**：同上，填写服务器的外部 IP 或域名
+- **CLIENT_RPC_URL**：将 `frpp.example.com` 替换为你的面板访问域名
+  - 必须与 Caddyfile 中的面板域名一致
+  - 使用 `wss://` 协议（WebSocket Secure）
+- **CLIENT_API_URL**：同上，填写面板访问域名
+  - 必须与 Caddyfile 中的面板域名一致
+  - 使用 `https://` 协议
 
 ### 配置要点解析
 
