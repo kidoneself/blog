@@ -31,6 +31,8 @@
 4. **灵活可控**：完全掌控自己的数据和服务
 5. **社区活跃**：遇到问题容易找到解决方案
 
+> 📦 **项目地址**：[https://github.com/vaalacat/frp-panel](https://github.com/vaalacat/frp-panel)
+
 ### 搭建背景
 
 我的使用场景是：
@@ -356,6 +358,14 @@ FRP Panel 的部署核心在于理解四个配置的作用和它们之间的协�
 4. **FRP Master 配置**：定义核心服务参数
 
 掌握这四个配置，就能轻松搭建一个功能完整的内网穿透管理平台。记住关键点：网络打通（`host.docker.internal`）、端口对应、域名配置，就能避免大部分部署问题。
+
+---
+
+## 🙏 致谢
+
+感谢 [FRP Panel](https://github.com/vaalacat/frp-panel) 项目的作者 [@vaalacat](https://github.com/vaalacat) 开发并维护这个优秀的开源项目，让内网穿透的管理变得如此简单和直观。正是有了这些优秀的开源项目，我们才能更轻松地解决实际问题。
+
+如果这篇文章对你有帮助，也欢迎给 FRP Panel 项目点个 ⭐ Star，支持开源项目的发展。
 
 ---
 
