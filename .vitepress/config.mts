@@ -31,6 +31,7 @@ export default defineConfig({
         {
           text: '技术文章',
           items: [
+            { text: 'MoviePilot 自动分类不完全手册', link: '/posts/tech/moviepilot-auto-classification' },
             { text: 'FRP Panel 四个关键配置详解', link: '/posts/tech/frp-panel-key-configs' },
             { text: '微信公众号自动同步实战指南', link: '/posts/tech/wechat-auto-publish' },
             { text: '博客图片使用演示 ⭐', link: '/posts/tech/image-demo' },
@@ -66,6 +67,7 @@ export default defineConfig({
           text: '技术',
           collapsed: false,
           items: [
+            { text: 'MoviePilot 自动分类不完全手册', link: '/posts/tech/moviepilot-auto-classification' },
             { text: 'FRP Panel 四个关键配置详解', link: '/posts/tech/frp-panel-key-configs' },
             { text: '微信公众号自动同步实战指南', link: '/posts/tech/wechat-auto-publish' },
             { text: '博客图片使用演示 ⭐', link: '/posts/tech/image-demo' },
